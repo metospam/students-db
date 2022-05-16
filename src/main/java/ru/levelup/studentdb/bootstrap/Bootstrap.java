@@ -20,6 +20,8 @@ public class Bootstrap implements CommandLineRunner {
         System.out.println("Please, enter command");
         System.out.print(">");
 
+        //Lukyanov Pavel
+
         // create student FirstName LastName
         // list students
 
