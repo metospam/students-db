@@ -1,11 +1,8 @@
 package ru.levelup.studentdb.service.impl;
 
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import ru.levelup.studentdb.model.Student;
-import ru.levelup.studentdb.service.DaoService;
 import ru.levelup.studentdb.service.StudentsService;
 
 import java.util.ArrayList;

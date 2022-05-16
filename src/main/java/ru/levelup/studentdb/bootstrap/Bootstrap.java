@@ -26,18 +26,19 @@ public class Bootstrap implements CommandLineRunner {
         // create group GroupName
         // list groups
 
-        // save
-        // load
+        // add student FirstName LastName to GroupName
+        // show members GroupName
+
+        // save db
+        // load db
 
         String line;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         while (!(line = reader.readLine()).equals("exit")) {
             String[] tokens = line.split(" ");
-            processor.process(tokens[0], Arrays.copyOfRange(tokens, 1, tokens.length));
+            processor.process(tokens[0], tokens[1], Arrays.copyOfRange(tokens, 1, tokens.length));
         }
-
         System.out.println();
     }
-
 }

@@ -8,7 +8,7 @@ import ru.levelup.studentdb.service.StudentsService;
 
 import java.util.List;
 
-@Component("listAction")
+@Component("list studentsAction")
 @Scope("prototype")
 @RequiredArgsConstructor
 public class ListStudentsAction implements Action {
@@ -23,8 +23,12 @@ public class ListStudentsAction implements Action {
     @Override
     public void execute() {
         List<Student> students = studentsService.findAll();
-        students.forEach(student -> {
-            System.out.println("Student " + student.getFirstName() + " " + student.getLastName());
-        });
+        if(students.size() > 0) {
+            students.forEach(student -> {
+                System.out.println("Student " + student.getFirstName() + " " + student.getLastName());
+            });
+        } else {
+            System.out.println("Students not exists.");
+        }
     }
 }

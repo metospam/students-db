@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import ru.levelup.studentdb.model.Student;
 import ru.levelup.studentdb.service.StudentsService;
 
-@Component("createAction")
+@Component("create studentAction")
 @Scope("prototype")
 @RequiredArgsConstructor
 public class CreateStudentAction implements Action {
@@ -26,5 +26,7 @@ public class CreateStudentAction implements Action {
     public void execute() {
         Student student = new Student(firstName, lastName);
         studentsService.save(student);
+
+        System.out.println("Student created.");
     }
 }

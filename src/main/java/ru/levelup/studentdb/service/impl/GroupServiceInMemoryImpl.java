@@ -2,7 +2,6 @@ package ru.levelup.studentdb.service.impl;
 
 import org.springframework.stereotype.Service;
 import ru.levelup.studentdb.model.Group;
-import ru.levelup.studentdb.service.DaoService;
 import ru.levelup.studentdb.service.GroupService;
 
 import java.util.ArrayList;
