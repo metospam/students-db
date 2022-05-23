@@ -28,5 +28,6 @@ public class CreateStudentAction implements Action {
         studentsService.save(student);
 
         System.out.println("Student created.");
+        System.out.print(">");
     }
 }

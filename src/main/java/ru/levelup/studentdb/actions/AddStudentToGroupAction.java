@@ -1,6 +1,5 @@
 package ru.levelup.studentdb.actions;
 
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -9,7 +8,9 @@ import ru.levelup.studentdb.model.Student;
 import ru.levelup.studentdb.service.GroupService;
 import ru.levelup.studentdb.service.StudentsService;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component("add studentAction")
@@ -37,25 +38,47 @@ public class AddStudentToGroupAction implements Action{
         List<Student> students = studentsService.findAll();
         List<Group> groups = groupService.findAll();
 
-        List<Student> equalStudents = students.stream()
-                .filter(student -> student.getFirstName().equals(firstName))
-                .filter(student -> student.getLastName().equals(lastName))
-                .collect(Collectors.toList());
+        getStudent(students);
 
-        List<Group> equalGroups = groups.stream()
-                .filter(group -> group.getName().equals(groupName))
-                .collect(Collectors.toList());
+        Group group = getGroup(groups);
+        Student student = getStudent(students);
 
-        if(equalStudents.size() > 0 && equalGroups.size() > 0) {
 
-            Group group = equalGroups.get(0);
-            Student student = equalStudents.get(0);
-
-            group.addStudent(student);
+            groupService.add(group, student);
 
             System.out.println("Student " + firstName + " " + lastName + " added to group " + groupName);
-        } else {
-            System.out.println("Group/Student not exists.");
+            System.out.print(">");
         }
+
+    private Student getStudent(List<Student> students) {
+        Optional<Student> equalStudents = students.stream()
+                .filter(student -> student.getFirstName().equals(firstName))
+                .filter(student -> student.getLastName().equals(lastName))
+                .findFirst();
+
+        Student student;
+        if(equalStudents.isPresent()) {
+            student = equalStudents.get();
+        } else {
+            student = new Student(firstName, lastName);
+            studentsService.save(student);
+        }
+        return student;
+    }
+
+    private Group getGroup(List<Group> groups) {
+        Optional<Group> equalGroups = groups.stream()
+                .filter(group -> group.getName().equals(groupName))
+                .findFirst();
+
+        Group group;
+        if(equalGroups.isPresent()) {
+            group = equalGroups.get();
+        } else {
+            group = new Group(groupName, new ArrayList<>());
+            groupService.save(group);
+        }
+        return group;
+
     }
 }

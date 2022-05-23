@@ -2,6 +2,7 @@ package ru.levelup.studentdb.service.impl;
 
 import org.springframework.stereotype.Service;
 import ru.levelup.studentdb.model.Group;
+import ru.levelup.studentdb.model.Student;
 import ru.levelup.studentdb.service.GroupService;
 
 import java.util.ArrayList;
@@ -15,11 +16,17 @@ public class GroupServiceInMemoryImpl implements GroupService {
 
     @Override
     public void save(Group group) {
-        groups.add(group);
+            groups.add(group);
     }
 
     @Override
     public List<Group> findAll() {
         return Collections.unmodifiableList(groups);
+    }
+
+    @Override
+    public void add(Group group, Student student) {
+        List<Student> studentsOfGroup = group.getStudents();
+        studentsOfGroup.add(student);
     }
 }

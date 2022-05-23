@@ -1,18 +1,19 @@
 package ru.levelup.studentdb.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class Student {
-    private final String firstName;
-    private final String lastName;
 
-    private Group group;
+    private Long id;
+    private String firstName;
+    private String lastName;
 
-    public void setGroup(Group group){
-        this.group = group;
+    public Student(String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     @Override

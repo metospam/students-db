@@ -30,8 +30,10 @@ public class ShowGroupMembersAction implements Action {
                     .filter(group -> group.getName().equals(groupName))
                     .map(Group::getStudents)
                     .forEach(System.out::println);
+            System.out.print(">");
         } else {
             System.out.println("Groups not exists.");
+            System.out.print(">");
         }
     }
 }

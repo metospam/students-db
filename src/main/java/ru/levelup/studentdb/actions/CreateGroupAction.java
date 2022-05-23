@@ -26,5 +26,6 @@ public class CreateGroupAction implements Action{
         groupService.save(group);
 
         System.out.println("Group created.");
+        System.out.print(">");
     }
 }

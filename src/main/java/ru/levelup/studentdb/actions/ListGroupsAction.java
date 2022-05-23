@@ -24,11 +24,12 @@ public class ListGroupsAction implements Action{
     public void execute() {
         List<Group> groups = groupService.findAll();
         if(groups.size() > 0) {
-            groups.forEach(group -> {
-                System.out.println("Group " + group.getName());
-            });
+            groups.forEach(group ->
+                    System.out.println("Group " + group.getName()));
+            System.out.print(">");
         } else {
             System.out.println("Groups not exists.");
+            System.out.print(">");
         }
     }
 }

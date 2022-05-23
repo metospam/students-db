@@ -24,11 +24,12 @@ public class ListStudentsAction implements Action {
     public void execute() {
         List<Student> students = studentsService.findAll();
         if(students.size() > 0) {
-            students.forEach(student -> {
-                System.out.println("Student " + student.getFirstName() + " " + student.getLastName());
-            });
+            students.forEach(student ->
+                    System.out.println("Student " + student.getFirstName() + " " + student.getLastName()));
+            System.out.print(">");
         } else {
             System.out.println("Students not exists.");
+            System.out.print(">");
         }
     }
 }
