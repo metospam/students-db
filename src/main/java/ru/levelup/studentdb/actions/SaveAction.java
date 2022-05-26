@@ -29,7 +29,7 @@ public class SaveAction implements Action {
     @Override
     public void execute() {
         saveStudents();
-        //saveGroups();
+        saveGroups();
 
         System.out.println("Save DB.");
         System.out.print(">");
@@ -40,8 +40,8 @@ public class SaveAction implements Action {
         allStudents.forEach(studentDaoService::save);
     }
 
-   // private void saveGroups(){
-       // List<Group> allGroups = groupService.findAll();
-     //   allGroups.forEach(groupDaoService::save);
-   // }
+    private void saveGroups(){
+        List<Group> allGroups = groupService.findAll();
+        allGroups.forEach(groupDaoService::save);
+    }
 }

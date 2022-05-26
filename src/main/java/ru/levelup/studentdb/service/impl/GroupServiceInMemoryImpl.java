@@ -26,7 +26,7 @@ public class GroupServiceInMemoryImpl implements GroupService {
 
     @Override
     public void add(Group group, Student student) {
-        List<Student> studentsOfGroup = group.getStudents();
-        studentsOfGroup.add(student);
+       // List<Student> studentsOfGroup = group.getStudents();
+       // studentsOfGroup.add(student);
     }
 }

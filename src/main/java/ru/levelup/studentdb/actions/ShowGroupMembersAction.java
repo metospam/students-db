@@ -8,7 +8,7 @@ import ru.levelup.studentdb.service.GroupService;
 
 import java.util.List;
 
-@Component("show membersAction")
+//@Component("show membersAction")
 @Scope("prototype")
 @RequiredArgsConstructor
 public class ShowGroupMembersAction implements Action {
@@ -28,7 +28,7 @@ public class ShowGroupMembersAction implements Action {
         if(groups.size() > 0) {
             groups.stream()
                     .filter(group -> group.getName().equals(groupName))
-                    .map(Group::getStudents)
+                   // .map(Group::getStudents)
                     .forEach(System.out::println);
             System.out.print(">");
         } else {

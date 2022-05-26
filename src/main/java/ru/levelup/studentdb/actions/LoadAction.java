@@ -27,10 +27,11 @@ public class LoadAction implements Action {
     @Override
     public void execute() {
         studentDaoService.findAll().forEach(studentsService::save);
-     //   groupDaoService.findAll().forEach(groupService::save);
+        groupDaoService.findAll().forEach(groupService::save);
 
-        System.out.println("Load DB.");
-        System.out.print(">");
+
     }
 }
+
+
 

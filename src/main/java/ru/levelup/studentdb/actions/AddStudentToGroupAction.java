@@ -74,7 +74,7 @@ public class AddStudentToGroupAction implements Action{
         if(equalGroups.isPresent()) {
             group = equalGroups.get();
         } else {
-            group = new Group(groupName, new ArrayList<>());
+            group = new Group(groupName);
             groupService.save(group);
         }
         return group;
