@@ -37,10 +37,19 @@ public class Bootstrap implements CommandLineRunner {
         String line;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        while (!(line = reader.readLine()).equals("exit")) {
-            String[] tokens = line.split(" ");
-            processor.process(tokens[0], tokens[1], Arrays.copyOfRange(tokens, 1, tokens.length));
+        while (true) {
+           // System.out.print(">");
+            line = reader.readLine();
+            if (line == null || "exit".equals(line.trim())) {
+                break;
+            }
+
+            String commandLine = line.trim();
+            if (commandLine.isEmpty()) {
+                continue;
+            }
+            String[] tokens = commandLine.split(" ");
+            processor.process(tokens[0], Arrays.copyOfRange(tokens, 1, tokens.length));
         }
-        System.out.println();
     }
 }

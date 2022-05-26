@@ -18,8 +18,8 @@ public class ShowGroupMembersAction implements Action {
     private String groupName;
 
     @Override
-    public void setParams(String... param) {
-        groupName = param[0];
+    public void setParams(String... params) {
+        groupName = params[0];
     }
 
     @Override

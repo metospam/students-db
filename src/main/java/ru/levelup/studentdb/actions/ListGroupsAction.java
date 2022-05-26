@@ -8,7 +8,7 @@ import ru.levelup.studentdb.service.GroupService;
 
 import java.util.List;
 
-@Component("list groupsAction")
+@Component("listgroupsAction")
 @Scope("prototype")
 @RequiredArgsConstructor
 public class ListGroupsAction implements Action{
@@ -16,7 +16,7 @@ public class ListGroupsAction implements Action{
     private final GroupService groupService;
 
     @Override
-    public void setParams(String... param) {
+    public void setParams(String... params) {
 
     }
 

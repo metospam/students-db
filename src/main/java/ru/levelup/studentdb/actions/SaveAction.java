@@ -11,7 +11,7 @@ import ru.levelup.studentdb.service.StudentsService;
 
 import java.util.List;
 
-@Component("save dbAction")
+@Component("saveAction")
 @Scope("prototype")
 @RequiredArgsConstructor
 public class SaveAction implements Action {
@@ -22,14 +22,14 @@ public class SaveAction implements Action {
     private final GroupService groupService;
 
     @Override
-    public void setParams(String... param) {
+    public void setParams(String... params) {
 
     }
 
     @Override
     public void execute() {
         saveStudents();
-        saveGroups();
+        //saveGroups();
 
         System.out.println("Save DB.");
         System.out.print(">");
@@ -40,8 +40,8 @@ public class SaveAction implements Action {
         allStudents.forEach(studentDaoService::save);
     }
 
-    private void saveGroups(){
-        List<Group> allGroups = groupService.findAll();
-        allGroups.forEach(groupDaoService::save);
-    }
+   // private void saveGroups(){
+       // List<Group> allGroups = groupService.findAll();
+     //   allGroups.forEach(groupDaoService::save);
+   // }
 }

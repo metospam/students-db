@@ -8,7 +8,7 @@ import ru.levelup.studentdb.service.StudentsService;
 
 import java.util.List;
 
-@Component("list studentsAction")
+@Component("liststudentsAction")
 @Scope("prototype")
 @RequiredArgsConstructor
 public class ListStudentsAction implements Action {
@@ -16,7 +16,7 @@ public class ListStudentsAction implements Action {
     private final StudentsService studentsService;
 
     @Override
-    public void setParams(String... param) {
+    public void setParams(String... params) {
 
     }
 

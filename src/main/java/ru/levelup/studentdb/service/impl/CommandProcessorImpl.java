@@ -20,14 +20,14 @@ public class CommandProcessorImpl implements CommandProcessor, ApplicationContex
     }
 
     @Override
-    public void process(String name, String cmd, String... args) {
-        Object actionObject = ctx.getBean(name + " " + cmd + "Action");
+    public void process(String cmd, String... args) {
+        Object actionObject = ctx.getBean(cmd + "Action");
 
         if (actionObject instanceof Action) {
             Action action = (Action) actionObject;
 
             if (args.length > 1) {
-                action.setParams(Arrays.copyOfRange(args, 1, args.length));
+                action.setParams(Arrays.copyOfRange(args, 0, args.length));
             }
 
             action.execute();

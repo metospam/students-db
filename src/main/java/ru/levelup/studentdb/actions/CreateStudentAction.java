@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import ru.levelup.studentdb.model.Student;
 import ru.levelup.studentdb.service.StudentsService;
 
-@Component("create studentAction")
+@Component("createStudentAction")
 @Scope("prototype")
 @RequiredArgsConstructor
 public class CreateStudentAction implements Action {
@@ -17,9 +17,9 @@ public class CreateStudentAction implements Action {
     private final StudentsService studentsService;
 
     @Override
-    public void setParams(String... param) {
-        this.firstName = param[0];
-        this.lastName = param[1];
+    public void setParams(String... params) {
+        this.firstName = params[0];
+        this.lastName = params[1];
     }
 
     @Override
